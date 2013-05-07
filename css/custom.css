@@ -1,0 +1,33 @@
+body, input, button, select, textarea{font-family:Arial, Helvetica, sans-serif !important;}
+.header{background:#068ebb !important; color:#fff;}
+footer .well{background:#CCC}
+
+.transparentBG{background:transparent !important;}
+
+.pullLeft0{margin-left:0px !important;}
+
+.border-botm{border-bottom:1px solid #dddddd;margin-bottom:10px;}
+
+.push-down{margin-bottom:20px;}
+.pull-down{padding-bottom:0px !important;}
+
+.test:nth-child(3n+1) {  
+  margin-left:0px !important;
+}
+.break{word-break:break-word;}
+
+.dark-grey{background:#333;color:#fff;}
+.grey{background:#CCC;}
+
+.data-list .row-fluid [class*="span"]{
+  margin-left:0px;
+  padding:1% !important;
+}
+.data-list .row-fluid {
+  margin-bottom:0px !important;
+}
+
+.table tr:nth-child(2n).grey{background:#fff;}
+
+/*jquery CSS menu*/
+.jquerycssmenu{padding-left:0px !important;padding-bottom:1px;border-bottom:none !important;}
