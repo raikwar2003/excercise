@@ -37,7 +37,6 @@
 			{
 				die('Error: '.mysqli_error(conn_db));
 			}
-			header ("Location: index.php");
 			return true;
 		}
 		
@@ -63,8 +62,6 @@
 			if(!$sql){
 				echo "Error".mysqli_error($this->conn_db);	
 			}
-			//print_r($sql);
-			header("Location: index.php");
 			return true;
 			
 		}
@@ -74,8 +71,6 @@
 			//$con=mysqli_connect("localhost","root","","phptraining");
 			
 			mysqli_query($this->conn_db,"DELETE FROM users WHERE id='$_GET[id]'");
-			header("Location: index.php");
-			
 		}
 		
 	}

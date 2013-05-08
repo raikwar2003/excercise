@@ -52,6 +52,7 @@
 		if ($feedback->emailUnique($_POST))
 		{
 			$emailerror=$feedback->insertFeedback($_POST);
+			header ("Location:success.php");
 		}
 		else
 		{
@@ -76,20 +77,20 @@
             <fieldset>
                 <legend>Contact Us</legend>
                 <div class="span12">
-                    <label for="user_name" class="span3"><strong>Name</strong></label>
+                    <label class="span3"><strong>Name</strong></label>
                     <input type="text" class="span9" id="name" name="name" value="<?php if ($conditionChk==true){echo $_POST['name'] ;}?>" />
                 </div>
                 <div class="span12">
-                    <label for="first_name" class="span3"><strong>Email</strong></label>
+                    <label class="span3"><strong>Email</strong></label>
                     <input type="email" class="span9" id="email" name="email" value="<?php if ($conditionChk==true){echo $_POST['email'] ;}?>" />
                     <span style="float:left;padding-left:23%;margin:-10px 0 5px 0;color:red;" class="error"><?php echo $errormsg ; ?></span>
                 </div>
                 <div class="span12">
-                    <label for="last_name" class="span3"><strong>Phone Number</strong></label>
+                    <label class="span3"><strong>Phone Number</strong></label>
                     <input type="number" class="span9"  id="phone" name="phone" quantity="1" value="<?php if ($conditionChk==true){echo $_POST['phone'] ;}?>" />
                 </div>
                 <div class="span12">
-                    <label for="email" class="span3"><strong>Message</strong></label>
+                    <label class="span3"><strong>Message</strong></label>
                     <textarea class="span9" id="message" name="message" rows="5" ><?php if ($conditionChk==true){echo $_POST['message'] ;}?></textarea>
                 </div>
                 <div class="span12 pullLeft0 text-right">

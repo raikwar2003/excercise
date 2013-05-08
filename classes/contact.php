@@ -63,7 +63,6 @@
 			{
 				echo 'Error: ' . mysqli_error($this->conn_db);
 			}
-			//header("Location: contactus.php");
 			return true;
 		}
 		

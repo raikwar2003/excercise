@@ -30,6 +30,7 @@
 			{
 				//$conditionChk = false;
 				$user->createUser($_POST);
+				header("Location: index.php");
 			}
 			else 
 			{
@@ -43,7 +44,6 @@
 			
 			$userid = $_GET['id'];
 			$result=$user->editUser($userid);
-			print_r($result['sex']);
 			
 			if($result['sex']=="Male")
 			{
@@ -57,7 +57,9 @@
 			$conditionChk = true;
 			if ($_POST)
 			{
-				$user->updateUser($_POST);			
+				$user->updateUser($_POST);
+				header("Location: index.php");
+				
 			}
 		}
 		
