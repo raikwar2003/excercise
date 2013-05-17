@@ -13,11 +13,11 @@
 			}
 		}
 		
-		function emailUnique($_POST)
+		function emailUnique($post_data = array())
 		{
 			//$email = array();
-			$email['email'] = $_POST['email'];
-			$check_email = mysqli_query($this->conn_db,"SELECT * FROM users where email='$_POST[email]'");
+			$email['email'] = $post_data['email'];
+			$check_email = mysqli_query($this->conn_db,"SELECT * FROM users where email='$post_data[email]'");
 			$result = mysqli_num_rows($check_email);
 			//print_r($result);
 			if ($result==0)

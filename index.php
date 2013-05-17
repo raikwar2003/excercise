@@ -13,16 +13,19 @@
  	$errormsg = "";
 	$conditionChk = false;
 	$emailerror=false;		
+	
+	
 	$user=new users();
 	
 			$maleStatus="checked";
 			$femaleStatus="unchecked";
+			$sex=" ";
 	if($_REQUEST)
 	{
 		//$conditionChk = true;
 		//$id = $_GET['id'];
 		
-		global $maleStatus, $femaleStatus;
+		global $maleStatus, $femaleStatus, $sex;
 		if(!isset($_GET['id']))
 		{
 			$emailcheck=$user->emailUnique($_POST);
@@ -41,18 +44,20 @@
 		}
 		else
 		{
-			
+			//global $sex;
 			$userid = $_GET['id'];
 			$result=$user->editUser($userid);
-			
-			if($result['sex']=="Male")
+			$sex=$result['sex'];
+			//print_r($sex);
+/*			if($result['sex']=="Male")
 			{
 				$maleStatus="checked";
 			}
 			else if($result['sex']=="Female")
 			{
 				$femaleStatus="checked";
-			}
+			}*/
+
 			
 			$conditionChk = true;
 			if ($_POST)
@@ -97,21 +102,15 @@
                 </div>
                 <div class="span12 pullLeft0">
 	                <div class="span6 pullLeft0">
-	                    <label><strong>Sex</strong></label>
-	                    <input type="radio" id="male" name="sex" style="float:left" value="Male" <?php print "$maleStatus"?> />
-	                    <label for="male" class="span3">Male</label>
-	                    <input type="radio" id="female" name="sex" style="float:left" value="Female" <?php print "$femaleStatus"?> />
-	                    <label for="female" class="span3">Female</label>
-	                    <!-- <input type="text" class="span12" id="sex" name="sex"/>
-	                    <label for="male" class="span3">Female</label>
-	                    <input type="test" id="sex" name="sex" style="float:left" value="Male"/>
-	                    <label for="male" class="span3">Male</label>
-	                    <input type="radio" id="sex" name="sex" style="float:left" value="Female" />
-	                    <label for="male" class="span3">Female</label> -->
-	                </div>
-	                <div class="span6">
 	                    <label for="age"><strong>Age</strong></label>
 	                    <input type="number" class="span12" id="age" name="age" value="<?php if($conditionChk==true){ echo $result['age'];} if($emailerror==true){echo $_POST['age'] ;} ?>" />
+	                </div>
+	                <div class="span6">
+	                    <label><strong>Sex</strong></label>
+	                    <input type="radio" id="male" name="sex" style="float:left" value="Male" <?php if($sex=="Male"){echo "checked";}?> />
+	                    <label for="male" class="span3">Male</label>
+	                    <input type="radio" id="female" name="sex" style="float:left" value="Female" <?php if($sex=="Female"){echo "checked";}?> />
+	                    <label for="female" class="span3">Female</label>
 	                </div>
                 </div>
                 <div class="span12 pullLeft0 text-right">

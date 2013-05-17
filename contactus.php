@@ -48,8 +48,8 @@
 	{
 		global $errormsg;
 		$feedback = new contact();
-		
-		if ($feedback->emailUnique($_POST))
+		$email = $_POST['email'];
+		if ($feedback->emailUnique($email))
 		{
 			$emailerror=$feedback->insertFeedback($_POST);
 			header ("Location:success.php");
